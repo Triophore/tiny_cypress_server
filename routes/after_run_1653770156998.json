@@ -1,0 +1,616 @@
+{
+    "startedTestsAt": "2022-05-28T20:35:46.211Z",
+    "endedTestsAt": "2022-05-28T20:35:54.771Z",
+    "totalDuration": 8560,
+    "totalSuites": 1,
+    "totalTests": 1,
+    "totalFailed": 1,
+    "totalPassed": 0,
+    "totalPending": 0,
+    "totalSkipped": 0,
+    "runs": [
+        {
+            "stats": {
+                "suites": 1,
+                "tests": 1,
+                "passes": 0,
+                "pending": 0,
+                "skipped": 0,
+                "failures": 1,
+                "duration": 8560,
+                "startedAt": "2022-05-28T20:35:46.211Z",
+                "endedAt": "2022-05-28T20:35:54.771Z"
+            },
+            "reporter": "cypress-multi-reporters",
+            "reporterStats": {
+                "suites": 1,
+                "tests": 1,
+                "passes": 0,
+                "pending": 0,
+                "failures": 1,
+                "start": "2022-05-28T20:35:46.217Z",
+                "end": "2022-05-28T20:35:54.786Z",
+                "duration": 8569,
+                "testsRegistered": 1,
+                "passPercent": 0,
+                "pendingPercent": 0,
+                "other": 0,
+                "hasOther": false,
+                "skipped": 0,
+                "hasSkipped": false
+            },
+            "hooks": [
+                {
+                    "hookName": "before all",
+                    "title": [
+                        "\"before all\" hook"
+                    ],
+                    "body": "function () {\n    //access fixture data\n    cy.fixture('user').then(function (regdata) {\n      username = regdata.username;\n      password = regdata.password;\n    });\n    cy.fixture('adduser').then(function (regdata) {\n      userdata = regdata;\n    });\n  }"
+                },
+                {
+                    "hookName": "before each",
+                    "title": [
+                        "\"before each\" hook"
+                    ],
+                    "body": "() => {// Cypress starts out with a blank slate for each test\n    // so we must tell it to visit our website with the `cy.visit()` command.\n    // Since we want to visit the same URL at the start of all our tests,\n    // we include it in our beforeEach function so that it runs before each test\n  }"
+                }
+            ],
+            "tests": [
+                {
+                    "title": [
+                        "login",
+                        "Login using username and password"
+                    ],
+                    "state": "failed",
+                    "body": "() => {\n    cy.visit(\"\");\n    cy.get('#username').type(username);\n    cy.get('#password').type(password);\n    cy.get('#kc-login').click();\n    cy.wait(2000);\n    cy.get('span').contains('Settings').click();\n    cy.wait(2000); // //manage users\n    // cy.get('[image=\"manageuser.png\"]').find('a').click();\n    // cy.wait(2000);\n    // //add user button click\n    // cy.get('mat-icon').contains('add').parent().parent().click();\n    // cy.wait(2000);\n    // cy.get('#firstname').type(userdata.first_name || faker.name.firstName());\n    // cy.get('#lastname').type(userdata.last_name || faker.name.lastName())\n    // cy.get('#email').type(userdata.email_id || faker.internet.email().toLowerCase());\n    // cy.get('input[placeholder=\"081234 56789\"]').type(userdata.phone || faker.phone.phoneNumber());\n    // cy.get('span').contains(userdata.role).parent().parent().parent().click()\n    // cy.get('span').contains(' + Group ').parent().click();\n    // cy.wait(1000);\n    // cy.get('mat-select[placeholder*=\"Clinical condition\"]').click();\n    // cy.wait(1000);\n    // cy.get('span').contains(userdata.group).parent().click();\n    // cy.wait(1000);\n    // cy.get('span').contains(' Add ').parent().click();\n    // cy.wait(1000);\n    // cy.get('span').contains(' Save ').parent().click();\n    // cy.get('mat-icon').contains('add').parent().parent().click();\n    // cy.wait(2000);\n    // cy.get('#firstname').type(userdata.first_name);\n    // cy.get('#lastname').type(userdata.last_name);\n    // cy.get('#email').type(userdata.email_id);\n    // cy.get('input[placeholder=\"081234 56789\"]').type(userdata.phone);\n    // cy.get('span').contains(userdata.role).parent().parent().parent().click()\n    // cy.get('span').contains(' + Group ').parent().click();\n    // cy.wait(1000);\n    // cy.get('mat-select[placeholder*=\"Clinical condition\"]').click();\n    // cy.wait(1000);\n    // cy.get('span').contains(userdata.group).parent().click();\n    // cy.wait(1000);\n    // cy.get('span').contains(' Add ').parent().click();\n    // cy.wait(1000);\n    // cy.get('span').contains(' Save ').parent().click();\n    // cy.get('mat-error').contains(' USER ALREADY EXISTS WITH THIS EMAIL/PHONE NUMBER!! ').should(\"be.visible\")\n    // cy.wait(1000);\n    // cy.get('ls-widget').contains(\" madalyn_effertz@hotmail.com \").parent().parent().parent().find(\"mat-slide-toggle\").click();\n    // cy.wait(500);\n    // cy.get('span').contains(' Confirm ').click();\n  }",
+                    "displayError": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Settings' within the element: <span#input-error.pf-c-form__helper-text.pf-m-error.required.kc-feedback-text.pull-left.ls-error-color> but never did.\n    at Context.eval (https://dev2a.lifesignals.com/__cypress/tests?p=cypress/integration/usercreation.spec.js:139:20)",
+                    "attempts": [
+                        {
+                            "state": "failed",
+                            "error": {
+                                "name": "AssertionError",
+                                "message": "Timed out retrying after 4000ms: Expected to find content: 'Settings' within the element: <span#input-error.pf-c-form__helper-text.pf-m-error.required.kc-feedback-text.pull-left.ls-error-color> but never did.",
+                                "stack": "    at Context.eval (https://dev2a.lifesignals.com/__cypress/tests?p=cypress/integration/usercreation.spec.js:139:20)",
+                                "codeFrame": {
+                                    "line": 52,
+                                    "column": 24,
+                                    "originalFile": "cypress/integration/usercreation.spec.js",
+                                    "relativeFile": "cypress/integration/usercreation.spec.js",
+                                    "absoluteFile": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/integration/usercreation.spec.js",
+                                    "frame": "  50 |         cy.get('#kc-login').click();\n  51 |         cy.wait(2000);\n> 52 |         cy.get('span').contains('Settings').click();\n     |                        ^\n  53 |         cy.wait(2000);\n  54 |         // //manage users\n  55 |         // cy.get('[image=\"manageuser.png\"]').find('a').click();",
+                                    "language": "js"
+                                }
+                            },
+                            "videoTimestamp": 4280,
+                            "duration": 8485,
+                            "startedAt": "2022-05-28T20:35:46.217Z",
+                            "screenshots": [
+                                {
+                                    "name": null,
+                                    "takenAt": "2022-05-28T20:35:54.558Z",
+                                    "path": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/screenshots/usercreation.spec.js/login -- Login using username and password (failed).png",
+                                    "height": 720,
+                                    "width": 1280
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "error": null,
+            "video": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/videos/usercreation.spec.js.mp4",
+            "spec": {
+                "name": "usercreation.spec.js",
+                "relative": "cypress/integration/usercreation.spec.js",
+                "absolute": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/integration/usercreation.spec.js",
+                "specType": "integration"
+            },
+            "shouldUploadVideo": true
+        }
+    ],
+    "browserPath": "",
+    "browserName": "electron",
+    "browserVersion": "94.0.4606.81",
+    "osName": "linux",
+    "osVersion": "Ubuntu - 22.04",
+    "cypressVersion": "9.5.4",
+    "config": {
+        "baseUrl": "https://dev2a.lifesignals.com",
+        "projectId": "bp2a4r",
+        "reporter": "cypress-multi-reporters",
+        "reporterOptions": {
+            "configFile": "reporter-config.json"
+        },
+        "projectRoot": "/home/triophore/Documents/projects/cypress_ui_bkp",
+        "projectName": "cypress_ui_bkp",
+        "rawJson": {
+            "baseUrl": "https://dev2a.lifesignals.com",
+            "projectId": "bp2a4r",
+            "reporter": "cypress-multi-reporters",
+            "reporterOptions": {
+                "configFile": "reporter-config.json"
+            },
+            "envFile": {},
+            "projectRoot": "/home/triophore/Documents/projects/cypress_ui_bkp",
+            "projectName": "cypress_ui_bkp"
+        },
+        "configFile": "cypress.json",
+        "morgan": false,
+        "isTextTerminal": true,
+        "socketId": "1vidt",
+        "report": true,
+        "browsers": [
+            {
+                "name": "chrome",
+                "family": "chromium",
+                "channel": "stable",
+                "displayName": "Chrome",
+                "version": "102.0.5005.61",
+                "path": "google-chrome",
+                "minSupportedVersion": 64,
+                "majorVersion": 102
+            },
+            {
+                "name": "firefox",
+                "family": "firefox",
+                "channel": "stable",
+                "displayName": "Firefox",
+                "version": "100.0.2",
+                "path": "firefox",
+                "minSupportedVersion": 86,
+                "majorVersion": 100
+            },
+            {
+                "name": "electron",
+                "channel": "stable",
+                "family": "chromium",
+                "displayName": "Electron",
+                "version": "94.0.4606.81",
+                "path": "",
+                "majorVersion": 94,
+                "info": "Electron is the default browser that comes with Cypress. This is the default browser that runs in headless mode. Selecting this browser is useful when debugging. The version number indicates the underlying Chromium version that Electron uses."
+            }
+        ],
+        "animationDistanceThreshold": 5,
+        "blockHosts": null,
+        "chromeWebSecurity": true,
+        "clientCertificates": [],
+        "component": {},
+        "componentFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/component",
+        "defaultCommandTimeout": 4000,
+        "downloadsFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/downloads",
+        "e2e": {},
+        "env": {},
+        "execTimeout": 60000,
+        "experimentalFetchPolyfill": false,
+        "experimentalInteractiveRunEvents": false,
+        "experimentalSessionSupport": false,
+        "experimentalSourceRewriting": false,
+        "experimentalStudio": false,
+        "fileServerFolder": "/home/triophore/Documents/projects/cypress_ui_bkp",
+        "fixturesFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/fixtures",
+        "ignoreTestFiles": "*.hot-update.js",
+        "includeShadowDom": false,
+        "integrationFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/integration",
+        "keystrokeDelay": 0,
+        "modifyObstructiveCode": true,
+        "numTestsKeptInMemory": 0,
+        "pageLoadTimeout": 60000,
+        "pluginsFile": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/plugins/index.js",
+        "port": 32869,
+        "redirectionLimit": 20,
+        "requestTimeout": 5000,
+        "resolvedNodePath": "/home/triophore/.nvm/versions/node/v16.14.2/bin/node",
+        "resolvedNodeVersion": "16.14.2",
+        "responseTimeout": 30000,
+        "retries": {
+            "runMode": 0,
+            "openMode": 0
+        },
+        "screenshotOnRunFailure": true,
+        "screenshotsFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/screenshots",
+        "slowTestThreshold": 10000,
+        "scrollBehavior": "top",
+        "supportFile": false,
+        "supportFolder": false,
+        "taskTimeout": 60000,
+        "testFiles": "**/*.*",
+        "trashAssetsBeforeRuns": true,
+        "userAgent": null,
+        "video": true,
+        "videoCompression": 32,
+        "videosFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/videos",
+        "videoUploadOnPasses": true,
+        "viewportHeight": 660,
+        "viewportWidth": 1000,
+        "waitForAnimations": true,
+        "watchForFileChanges": false,
+        "autoOpen": false,
+        "clientRoute": "/__/",
+        "devServerPublicPathRoute": "/__cypress/src",
+        "hosts": null,
+        "isInteractive": true,
+        "namespace": "__cypress",
+        "reporterRoute": "/__cypress/reporter",
+        "socketIoCookie": "__socket.io",
+        "socketIoRoute": "/__socket.io",
+        "xhrRoute": "/xhrs/",
+        "cypressEnv": "production",
+        "resolved": {
+            "animationDistanceThreshold": {
+                "value": 5,
+                "from": "default"
+            },
+            "baseUrl": {
+                "value": "https://dev2a.lifesignals.com",
+                "from": "config"
+            },
+            "blockHosts": {
+                "value": null,
+                "from": "default"
+            },
+            "chromeWebSecurity": {
+                "value": true,
+                "from": "default"
+            },
+            "clientCertificates": {
+                "value": [],
+                "from": "default"
+            },
+            "component": {
+                "value": {},
+                "from": "default"
+            },
+            "componentFolder": {
+                "value": "cypress/component",
+                "from": "default"
+            },
+            "defaultCommandTimeout": {
+                "value": 4000,
+                "from": "default"
+            },
+            "downloadsFolder": {
+                "value": "cypress/downloads",
+                "from": "default"
+            },
+            "e2e": {
+                "value": {},
+                "from": "default"
+            },
+            "env": {},
+            "execTimeout": {
+                "value": 60000,
+                "from": "default"
+            },
+            "experimentalFetchPolyfill": {
+                "value": false,
+                "from": "default"
+            },
+            "experimentalInteractiveRunEvents": {
+                "value": false,
+                "from": "default"
+            },
+            "experimentalSessionSupport": {
+                "value": false,
+                "from": "default"
+            },
+            "experimentalSourceRewriting": {
+                "value": false,
+                "from": "default"
+            },
+            "experimentalStudio": {
+                "value": false,
+                "from": "default"
+            },
+            "fileServerFolder": {
+                "value": "",
+                "from": "default"
+            },
+            "fixturesFolder": {
+                "value": "cypress/fixtures",
+                "from": "default"
+            },
+            "ignoreTestFiles": {
+                "value": "*.hot-update.js",
+                "from": "default"
+            },
+            "includeShadowDom": {
+                "value": false,
+                "from": "default"
+            },
+            "integrationFolder": {
+                "value": "cypress/integration",
+                "from": "default"
+            },
+            "keystrokeDelay": {
+                "value": 0,
+                "from": "default"
+            },
+            "modifyObstructiveCode": {
+                "value": true,
+                "from": "default"
+            },
+            "numTestsKeptInMemory": {
+                "value": 0,
+                "from": "config"
+            },
+            "pageLoadTimeout": {
+                "value": 60000,
+                "from": "default"
+            },
+            "pluginsFile": {
+                "value": "cypress/plugins",
+                "from": "default"
+            },
+            "port": {
+                "value": null,
+                "from": "default"
+            },
+            "projectId": {
+                "value": "bp2a4r",
+                "from": "config"
+            },
+            "redirectionLimit": {
+                "value": 20,
+                "from": "default"
+            },
+            "reporter": {
+                "value": "cypress-multi-reporters",
+                "from": "config"
+            },
+            "reporterOptions": {
+                "value": {
+                    "configFile": "reporter-config.json"
+                },
+                "from": "config"
+            },
+            "requestTimeout": {
+                "value": 5000,
+                "from": "default"
+            },
+            "resolvedNodePath": {
+                "value": null,
+                "from": "default"
+            },
+            "resolvedNodeVersion": {
+                "value": null,
+                "from": "default"
+            },
+            "responseTimeout": {
+                "value": 30000,
+                "from": "default"
+            },
+            "retries": {
+                "value": {
+                    "runMode": 0,
+                    "openMode": 0
+                },
+                "from": "default"
+            },
+            "screenshotOnRunFailure": {
+                "value": true,
+                "from": "default"
+            },
+            "screenshotsFolder": {
+                "value": "cypress/screenshots",
+                "from": "default"
+            },
+            "slowTestThreshold": {
+                "value": 10000,
+                "from": "default"
+            },
+            "scrollBehavior": {
+                "value": "top",
+                "from": "default"
+            },
+            "supportFile": {
+                "value": "cypress/support",
+                "from": "default"
+            },
+            "supportFolder": {
+                "value": false,
+                "from": "default"
+            },
+            "taskTimeout": {
+                "value": 60000,
+                "from": "default"
+            },
+            "testFiles": {
+                "value": "**/*.*",
+                "from": "default"
+            },
+            "trashAssetsBeforeRuns": {
+                "value": true,
+                "from": "default"
+            },
+            "userAgent": {
+                "value": null,
+                "from": "default"
+            },
+            "video": {
+                "value": true,
+                "from": "default"
+            },
+            "videoCompression": {
+                "value": 32,
+                "from": "default"
+            },
+            "videosFolder": {
+                "value": "cypress/videos",
+                "from": "default"
+            },
+            "videoUploadOnPasses": {
+                "value": true,
+                "from": "default"
+            },
+            "viewportHeight": {
+                "value": 660,
+                "from": "default"
+            },
+            "viewportWidth": {
+                "value": 1000,
+                "from": "default"
+            },
+            "waitForAnimations": {
+                "value": true,
+                "from": "default"
+            },
+            "watchForFileChanges": {
+                "value": false,
+                "from": "config"
+            },
+            "browsers": {
+                "value": [
+                    {
+                        "name": "chrome",
+                        "family": "chromium",
+                        "channel": "stable",
+                        "displayName": "Chrome",
+                        "version": "102.0.5005.61",
+                        "path": "google-chrome",
+                        "minSupportedVersion": 64,
+                        "majorVersion": 102
+                    },
+                    {
+                        "name": "firefox",
+                        "family": "firefox",
+                        "channel": "stable",
+                        "displayName": "Firefox",
+                        "version": "100.0.2",
+                        "path": "firefox",
+                        "minSupportedVersion": 86,
+                        "majorVersion": 100
+                    },
+                    {
+                        "name": "electron",
+                        "channel": "stable",
+                        "family": "chromium",
+                        "displayName": "Electron",
+                        "version": "94.0.4606.81",
+                        "path": "",
+                        "majorVersion": 94,
+                        "info": "Electron is the default browser that comes with Cypress. This is the default browser that runs in headless mode. Selecting this browser is useful when debugging. The version number indicates the underlying Chromium version that Electron uses.",
+                        "isHeadless": true,
+                        "isHeaded": false
+                    }
+                ],
+                "from": "default"
+            },
+            "hosts": {
+                "value": null,
+                "from": "default"
+            },
+            "isInteractive": {
+                "value": true,
+                "from": "default"
+            }
+        },
+        "parentTestsFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress",
+        "parentTestsFolderDisplay": "cypress_ui_bkp/cypress",
+        "scaffoldedFiles": [
+            {
+                "name": "cypress",
+                "children": [
+                    {
+                        "name": "integration",
+                        "children": [
+                            {
+                                "name": "1-getting-started",
+                                "children": [
+                                    {
+                                        "name": "todo.spec.js"
+                                    }
+                                ]
+                            },
+                            {
+                                "name": "2-advanced-examples",
+                                "children": [
+                                    {
+                                        "name": "actions.spec.js"
+                                    },
+                                    {
+                                        "name": "aliasing.spec.js"
+                                    },
+                                    {
+                                        "name": "assertions.spec.js"
+                                    },
+                                    {
+                                        "name": "connectors.spec.js"
+                                    },
+                                    {
+                                        "name": "cookies.spec.js"
+                                    },
+                                    {
+                                        "name": "cypress_api.spec.js"
+                                    },
+                                    {
+                                        "name": "files.spec.js"
+                                    },
+                                    {
+                                        "name": "local_storage.spec.js"
+                                    },
+                                    {
+                                        "name": "location.spec.js"
+                                    },
+                                    {
+                                        "name": "misc.spec.js"
+                                    },
+                                    {
+                                        "name": "navigation.spec.js"
+                                    },
+                                    {
+                                        "name": "network_requests.spec.js"
+                                    },
+                                    {
+                                        "name": "querying.spec.js"
+                                    },
+                                    {
+                                        "name": "spies_stubs_clocks.spec.js"
+                                    },
+                                    {
+                                        "name": "traversal.spec.js"
+                                    },
+                                    {
+                                        "name": "utilities.spec.js"
+                                    },
+                                    {
+                                        "name": "viewport.spec.js"
+                                    },
+                                    {
+                                        "name": "waiting.spec.js"
+                                    },
+                                    {
+                                        "name": "window.spec.js"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "name": "fixtures",
+                        "children": [
+                            {
+                                "name": "example.json"
+                            }
+                        ]
+                    },
+                    {
+                        "name": "plugins",
+                        "children": [
+                            {
+                                "name": "index.js"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "proxyUrl": "http://localhost:32869",
+        "browserUrl": "https://dev2a.lifesignals.com/__/",
+        "reporterUrl": "https://dev2a.lifesignals.com/__cypress/reporter",
+        "xhrUrl": "__cypress/xhrs/",
+        "proxyServer": "http://localhost:32869",
+        "state": {}
+    },
+    "status": "finished"
+}

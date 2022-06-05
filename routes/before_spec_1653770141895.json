@@ -1,0 +1,8 @@
+{
+    "spec": {
+        "name": "usercreation.spec.js",
+        "relative": "cypress/integration/usercreation.spec.js",
+        "absolute": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/integration/usercreation.spec.js",
+        "specType": "integration"
+    }
+}

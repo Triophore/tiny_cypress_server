@@ -1,0 +1,21 @@
+{
+  "name": "tiny_cypress_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/hapi": "^20.2.2",
+    "bcrypt": "^5.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.3.4",
+    "mongoose-paginate-v2": "^1.6.3",
+    "monodb": "^1.5.1",
+    "socket.io": "^4.5.1"
+  }
+}

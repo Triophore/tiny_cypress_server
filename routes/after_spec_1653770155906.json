@@ -1,0 +1,133 @@
+{
+    "results": {
+        "stats": {
+            "suites": 1,
+            "tests": 1,
+            "passes": 0,
+            "pending": 0,
+            "skipped": 0,
+            "failures": 1,
+            "wallClockStartedAt": "2022-05-28T20:35:46.211Z",
+            "wallClockEndedAt": "2022-05-28T20:35:54.771Z",
+            "wallClockDuration": 8560
+        },
+        "reporter": "cypress-multi-reporters",
+        "reporterStats": {
+            "suites": 1,
+            "tests": 1,
+            "passes": 0,
+            "pending": 0,
+            "failures": 1,
+            "start": "2022-05-28T20:35:46.217Z",
+            "end": "2022-05-28T20:35:54.786Z",
+            "duration": 8569,
+            "testsRegistered": 1,
+            "passPercent": 0,
+            "pendingPercent": 0,
+            "other": 0,
+            "hasOther": false,
+            "skipped": 0,
+            "hasSkipped": false
+        },
+        "hooks": [
+            {
+                "hookId": "h1",
+                "hookName": "before all",
+                "title": [
+                    "\"before all\" hook"
+                ],
+                "body": "function () {\n    //access fixture data\n    cy.fixture('user').then(function (regdata) {\n      username = regdata.username;\n      password = regdata.password;\n    });\n    cy.fixture('adduser').then(function (regdata) {\n      userdata = regdata;\n    });\n  }"
+            },
+            {
+                "hookId": "h2",
+                "hookName": "before each",
+                "title": [
+                    "\"before each\" hook"
+                ],
+                "body": "() => {// Cypress starts out with a blank slate for each test\n    // so we must tell it to visit our website with the `cy.visit()` command.\n    // Since we want to visit the same URL at the start of all our tests,\n    // we include it in our beforeEach function so that it runs before each test\n  }"
+            }
+        ],
+        "tests": [
+            {
+                "testId": "r3",
+                "title": [
+                    "login",
+                    "Login using username and password"
+                ],
+                "state": "failed",
+                "body": "() => {\n    cy.visit(\"\");\n    cy.get('#username').type(username);\n    cy.get('#password').type(password);\n    cy.get('#kc-login').click();\n    cy.wait(2000);\n    cy.get('span').contains('Settings').click();\n    cy.wait(2000); // //manage users\n    // cy.get('[image=\"manageuser.png\"]').find('a').click();\n    // cy.wait(2000);\n    // //add user button click\n    // cy.get('mat-icon').contains('add').parent().parent().click();\n    // cy.wait(2000);\n    // cy.get('#firstname').type(userdata.first_name || faker.name.firstName());\n    // cy.get('#lastname').type(userdata.last_name || faker.name.lastName())\n    // cy.get('#email').type(userdata.email_id || faker.internet.email().toLowerCase());\n    // cy.get('input[placeholder=\"081234 56789\"]').type(userdata.phone || faker.phone.phoneNumber());\n    // cy.get('span').contains(userdata.role).parent().parent().parent().click()\n    // cy.get('span').contains(' + Group ').parent().click();\n    // cy.wait(1000);\n    // cy.get('mat-select[placeholder*=\"Clinical condition\"]').click();\n    // cy.wait(1000);\n    // cy.get('span').contains(userdata.group).parent().click();\n    // cy.wait(1000);\n    // cy.get('span').contains(' Add ').parent().click();\n    // cy.wait(1000);\n    // cy.get('span').contains(' Save ').parent().click();\n    // cy.get('mat-icon').contains('add').parent().parent().click();\n    // cy.wait(2000);\n    // cy.get('#firstname').type(userdata.first_name);\n    // cy.get('#lastname').type(userdata.last_name);\n    // cy.get('#email').type(userdata.email_id);\n    // cy.get('input[placeholder=\"081234 56789\"]').type(userdata.phone);\n    // cy.get('span').contains(userdata.role).parent().parent().parent().click()\n    // cy.get('span').contains(' + Group ').parent().click();\n    // cy.wait(1000);\n    // cy.get('mat-select[placeholder*=\"Clinical condition\"]').click();\n    // cy.wait(1000);\n    // cy.get('span').contains(userdata.group).parent().click();\n    // cy.wait(1000);\n    // cy.get('span').contains(' Add ').parent().click();\n    // cy.wait(1000);\n    // cy.get('span').contains(' Save ').parent().click();\n    // cy.get('mat-error').contains(' USER ALREADY EXISTS WITH THIS EMAIL/PHONE NUMBER!! ').should(\"be.visible\")\n    // cy.wait(1000);\n    // cy.get('ls-widget').contains(\" madalyn_effertz@hotmail.com \").parent().parent().parent().find(\"mat-slide-toggle\").click();\n    // cy.wait(500);\n    // cy.get('span').contains(' Confirm ').click();\n  }",
+                "displayError": "AssertionError: Timed out retrying after 4000ms: Expected to find content: 'Settings' within the element: <span#input-error.pf-c-form__helper-text.pf-m-error.required.kc-feedback-text.pull-left.ls-error-color> but never did.\n    at Context.eval (https://dev2a.lifesignals.com/__cypress/tests?p=cypress/integration/usercreation.spec.js:139:20)",
+                "attempts": [
+                    {
+                        "state": "failed",
+                        "error": {
+                            "name": "AssertionError",
+                            "message": "Timed out retrying after 4000ms: Expected to find content: 'Settings' within the element: <span#input-error.pf-c-form__helper-text.pf-m-error.required.kc-feedback-text.pull-left.ls-error-color> but never did.",
+                            "stack": "    at Context.eval (https://dev2a.lifesignals.com/__cypress/tests?p=cypress/integration/usercreation.spec.js:139:20)",
+                            "codeFrame": {
+                                "line": 52,
+                                "column": 24,
+                                "originalFile": "cypress/integration/usercreation.spec.js",
+                                "relativeFile": "cypress/integration/usercreation.spec.js",
+                                "absoluteFile": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/integration/usercreation.spec.js",
+                                "frame": "  50 |         cy.get('#kc-login').click();\n  51 |         cy.wait(2000);\n> 52 |         cy.get('span').contains('Settings').click();\n     |                        ^\n  53 |         cy.wait(2000);\n  54 |         // //manage users\n  55 |         // cy.get('[image=\"manageuser.png\"]').find('a').click();",
+                                "language": "js"
+                            }
+                        },
+                        "timings": {
+                            "lifecycle": 20,
+                            "before all": [
+                                {
+                                    "hookId": "h1",
+                                    "fnDuration": 26,
+                                    "afterFnDuration": 0
+                                }
+                            ],
+                            "before each": [
+                                {
+                                    "hookId": "h2",
+                                    "fnDuration": 0,
+                                    "afterFnDuration": 0
+                                }
+                            ],
+                            "test": {
+                                "fnDuration": 8286,
+                                "afterFnDuration": 145
+                            }
+                        },
+                        "failedFromHookId": null,
+                        "wallClockStartedAt": "2022-05-28T20:35:46.217Z",
+                        "wallClockDuration": 8485,
+                        "videoTimestamp": 4280
+                    }
+                ]
+            }
+        ],
+        "error": null,
+        "video": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/videos/usercreation.spec.js.mp4",
+        "screenshots": [
+            {
+                "screenshotId": "2qhzf",
+                "name": null,
+                "testId": "r3",
+                "testAttemptIndex": 0,
+                "takenAt": "2022-05-28T20:35:54.558Z",
+                "path": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/screenshots/usercreation.spec.js/login -- Login using username and password (failed).png",
+                "height": 720,
+                "width": 1280
+            }
+        ],
+        "spec": {
+            "name": "usercreation.spec.js",
+            "relative": "cypress/integration/usercreation.spec.js",
+            "absolute": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/integration/usercreation.spec.js",
+            "specType": "integration"
+        }
+    },
+    "spec": {
+        "name": "usercreation.spec.js",
+        "relative": "cypress/integration/usercreation.spec.js",
+        "absolute": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/integration/usercreation.spec.js",
+        "specType": "integration"
+    }
+}
