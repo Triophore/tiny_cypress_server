@@ -2,49 +2,49 @@ module.exports.route = async function (server,models) {
 
     server.route({
         method: 'GET',
-        path: '/api/sms',
+        path: '/api/email',
         handler: await function(request, h) {           
-            return models.sms.find({});
+            return models.email.find({});
         }
     });
 
     server.route({
         method: 'GET',
-        path: '/api/sms/groups',
+        path: '/api/email/groups',
         handler: await function(request, h) {           
-            return models.sms_group.find({});
+            return models.email_group.find({});
         }
     });
     
     server.route({
         method: 'POST',
-        path: '/api/sms/add',
+        path: '/api/email/add',
         handler: await function(request, h) {           
-            return new models.sms(request.payload).save();
+            return new models.email(request.payload).save();
         }
     });
 
     server.route({
         method: 'POST',
-        path: '/api/sms/delete',
+        path: '/api/email/delete',
         handler: (request, h) => {  
-            return models.sms.deleteOne({_id:request.payload._id});
+            return models.email.deleteOne({_id:request.payload._id});
         }
     });
 
     server.route({
         method: 'POST',
-        path: '/api/sms/group/add',
+        path: '/api/email/group/add',
         handler: async function(request, h){ 
-            return new models.sms_group(request.payload).save();
+            return new models.email_group(request.payload).save();
         }
     });
 
     server.route({
         method: 'POST',
-        path: '/api/sms/group/delete/',
+        path: '/api/email/group/delete/',
         handler: (request, h) => {
-            return models.sms_group.deleteOne({_id:request.payload._id});
+            return models.email_group.deleteOne({_id:request.payload._id});
         }
     });
 
