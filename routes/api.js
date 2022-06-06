@@ -71,4 +71,22 @@ module.exports.route = async function (server,mongoose) {
             return 'Hello World!';
         }
     });
+
+    server.route({
+        method: 'POST',
+        path: '/project/video_upload',
+        handler: (request, h) => {
+            require('fs').writeFileSync(require("path").join(__dirname,"task_"+Date.now()+".json"), JSON.stringify(request.payload));
+            return 'Hello World!';
+        }
+    });
+
+    server.route({
+        method: 'POST',
+        path: '/project/screenshot_upload',
+        handler: (request, h) => {
+            require('fs').writeFileSync(require("path").join(__dirname,"task_"+Date.now()+".json"), JSON.stringify(request.payload));
+            return 'Hello World!';
+        }
+    });
 }
