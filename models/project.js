@@ -12,16 +12,16 @@ module.exports = async function (mongoose) {
             unique: true,
             required : true
         },
-        project_before_project: {
+        project_before: {
             type: Boolean
         },
-        project_after_project: {
+        project_after: {
             type: Boolean
         },
-        project_before_spec: {
+        spec_before: {
             type: Boolean
         },
-        project_after_spec: {
+        spec_after: {
             type: Boolean
         },
         project_teams:{
