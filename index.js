@@ -27,6 +27,10 @@ const init = async () => {
         models.email = await require('./models/email')(mongoose, mongoosePaginate);
         models.email_group = await require('./models/email_group')(mongoose, mongoosePaginate);
         models.teams = await require('./models/teams')(mongoose, mongoosePaginate);
+        models.cypress_project_after = await require('./models/cypress_project_after')(mongoose, mongoosePaginate);
+        models.cypress_spec_after = await require('./models/cypress_spec_after')(mongoose, mongoosePaginate);
+        models.cypress_spec_before = await require('./models/cypress_spec_before')(mongoose, mongoosePaginate);
+        models.cypress_project_before = await require('./models/cypress_project_before')(mongoose, mongoosePaginate);
     }
 
     const JWT   = require('jsonwebtoken');

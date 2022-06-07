@@ -11,9 +11,10 @@ module.exports.route = async function (server,mongoose) {
     server.route({
         method: 'POST',
         path: '/before_run',
-        handler: (request, h) => {
-            require('fs').writeFileSync(require("path").join(__dirname,"before_run_"+Date.now()+".json"), JSON.stringify(request.payload));
-            return 'Hello World!';
+        handler: async (request, h) => {
+            //require('fs').writeFileSync(require("path").join(__dirname,"before_run_"+Date.now()+".json"), JSON.stringify(request.payload));
+            var res = await new mongoose.cypress_project_before(request.payload).save();
+            return res;
         }
     });
 
@@ -21,8 +22,9 @@ module.exports.route = async function (server,mongoose) {
         method: 'POST',
         path: '/after_run',
         handler: (request, h) => {
-            require('fs').writeFileSync(require("path").join(__dirname,"after_run_"+Date.now()+".json"), JSON.stringify(request.payload));
-            return 'Hello World!';
+            //require('fs').writeFileSync(require("path").join(__dirname,"after_run_"+Date.now()+".json"), JSON.stringify(request.payload));
+            var res = await new mongoose.cypress_project_after(request.payload).save();
+            return res;
         }
     });
 
@@ -30,8 +32,9 @@ module.exports.route = async function (server,mongoose) {
         method: 'POST',
         path: '/before_spec',
         handler: (request, h) => {
-            require('fs').writeFileSync(require("path").join(__dirname,"before_spec_"+Date.now()+".json"), JSON.stringify(request.payload));
-            return 'Hello World!';
+            //require('fs').writeFileSync(require("path").join(__dirname,"before_spec_"+Date.now()+".json"), JSON.stringify(request.payload));
+            var res = await new mongoose.cypress_spec_before(request.payload).save();
+            return res;
         }
     });
 
@@ -39,8 +42,9 @@ module.exports.route = async function (server,mongoose) {
         method: 'POST',
         path: '/after_spec',
         handler: (request, h) => {
-            require('fs').writeFileSync(require("path").join(__dirname,"after_spec_"+Date.now()+".json"), JSON.stringify(request.payload));
-            return 'Hello World!';
+            //require('fs').writeFileSync(require("path").join(__dirname,"after_spec_"+Date.now()+".json"), JSON.stringify(request.payload));
+            var res = await new mongoose.cypress_spec_after(request.payload).save();
+            return res;
         }
     });
 
