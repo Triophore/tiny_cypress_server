@@ -27,6 +27,7 @@ const init = async () => {
         models.email = await require('./models/email')(mongoose, mongoosePaginate);
         models.email_group = await require('./models/email_group')(mongoose, mongoosePaginate);
         models.teams = await require('./models/teams')(mongoose, mongoosePaginate);
+        models.project = await require('./models/project')(mongoose, mongoosePaginate);
         models.cypress_project_after = await require('./models/cypress_project_after')(mongoose, mongoosePaginate);
         models.cypress_spec_after = await require('./models/cypress_spec_after')(mongoose, mongoosePaginate);
         models.cypress_spec_before = await require('./models/cypress_spec_before')(mongoose, mongoosePaginate);
@@ -79,6 +80,7 @@ const init = async () => {
     require("./routes/user").route(server, models);
     require("./routes/email").route(server, models);
     require("./routes/teams").route(server, models);
+    require("./routes/project").route(server, models);
 
     server.route({
         method: 'GET',
