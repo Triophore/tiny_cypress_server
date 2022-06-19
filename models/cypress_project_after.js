@@ -639,7 +639,7 @@ module.exports = async function (mongoose) {
           },
           supportFolder: {
             value: {
-              type: Boolean
+              type: String
             },
             from: {
               type: String

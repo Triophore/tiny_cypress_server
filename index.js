@@ -8,6 +8,7 @@ const mongoosePaginate = require('mongoose-paginate-v2');
 const config = require('./config');
 const Blipp = require('blipp');
 
+const agents = require('./agent');
 
 
 const init = async () => {
@@ -23,6 +24,7 @@ const init = async () => {
         });
         models.user = await require('./models/user')(mongoose, mongoosePaginate);
         models.sms = await require('./models/sms')(mongoose, mongoosePaginate);
+        models.agents = await require('./models/agents')(mongoose, mongoosePaginate);
         models.sms_group = await require('./models/sms_group')(mongoose, mongoosePaginate);
         models.email = await require('./models/email')(mongoose, mongoosePaginate);
         models.email_group = await require('./models/email_group')(mongoose, mongoosePaginate);
@@ -37,7 +39,9 @@ const init = async () => {
     const JWT   = require('jsonwebtoken');
 
     function create_jwt_token(data){
-        return JWT.sign(data, config.jwt.key);
+        return JWT.sign(data, config.jwt.key,{
+            expiresIn : "30d"
+        });
         
     }
 
@@ -72,15 +76,75 @@ const init = async () => {
 
 
     io.on("connection", (socket) => {
-        console.log(socket.id)
+        //console.log(socket.id)
+        socket.on("disconnect", () => {
+            if(agents.check_agent(socket.id)){
+                console.log( agents.get_agent(socket.id))
+                io.emit('agent_disconnected', agents.get_agent(socket.id));
+            }
+            
+        });
+
+        socket.on("join_agent",async function(data) {
+          
+                if (socket.agentRoom) {
+                    socket.leave(socket.agentRoom);
+                    socket.agentRoom = null;
+                }
+                socket.agentRoom = data.project_id;
+                data.id = socket.id
+                data.agent_id = socket.id
+                socket.join(data.project_id);
+                console.log("Agent join room");
+                console.log(data.project_id)
+                agents.add_agent(data);
+                //.in(data.project_id)
+               io.emit('agent_connected', data);
+        });
+
+        socket.on("agent_info_recv",async function(data) {
+            console.log("Agent info recv");
+            console.log(data)
+            io.in(data.project_id).emit('update_agent', data);
+        });
+
+        socket.on("ui_start_agent",async function(data) {
+            io.in(data.project.project_id).emit('agent_start', data);
+        });
+
+        socket.on("get_agent_status",async function(data) {
+            io.in(data.project_id).emit('update_agent', data);
+        });
+
+        socket.on("get_all_agents",async function(data) {
+            console.log("get_all_agents")
+            console.log(data.project_id)
+            console.log("get_all_agents")
+            //.in(data.project_id)
+            io.in(data.project_id).emit('agent_info_send');
+        });
+
+
+        socket.on("join_user",async function(data) {
+            // if (socket.userRoom) {
+            //     socket.leave(socket.userRoom);
+            //     socket.userRoom = null;
+            // }
+            // socket.userRoom = data.user_id;
+            console.log(data)
+            socket.join(data.project_id);
+            //io.in(data.project_id).emit('agent_info_send', data);
+            console.log("User  join room")
+        });
     });
 
-    require("./routes/api").route(server, models);
+    require("./routes/api").route(server, models,io);
     require("./routes/sms").route(server, models);
     require("./routes/user").route(server, models);
     require("./routes/email").route(server, models);
     require("./routes/teams").route(server, models);
     require("./routes/project").route(server, models);
+    require("./routes/agents").route(server, models);
 
     server.route({
         method: 'GET',

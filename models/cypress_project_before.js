@@ -5,6 +5,10 @@ module.exports = async function (mongoose) {
       project_id: {
         type: String
       },
+      run_date : {
+        type: Date,
+        default: Date.now
+      },
       browser: {
         name: {
           type: String
@@ -212,10 +216,10 @@ module.exports = async function (mongoose) {
           type: String
         },
         supportFile: {
-          type: Boolean
+          type: {}
         },
         supportFolder: {
-          type: Boolean
+          type: {}
         },
         taskTimeout: {
           type: Number
@@ -621,7 +625,7 @@ module.exports = async function (mongoose) {
           },
           supportFolder: {
             value: {
-              type: Boolean
+              type: String
             },
             from: {
               type: String

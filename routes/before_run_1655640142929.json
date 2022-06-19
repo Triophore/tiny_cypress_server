@@ -4,55 +4,114 @@
         "channel": "stable",
         "family": "chromium",
         "displayName": "Electron",
-        "version": "94.0.4606.81",
+        "version": "100.0.4896.75",
         "path": "",
-        "majorVersion": 94,
+        "majorVersion": 100,
         "info": "Electron is the default browser that comes with Cypress. This is the default browser that runs in headless mode. Selecting this browser is useful when debugging. The version number indicates the underlying Chromium version that Electron uses.",
         "isHeadless": true,
         "isHeaded": false
     },
     "config": {
-        "baseUrl": "https://dev2a.lifesignals.com",
         "projectId": "bp2a4r",
         "reporter": "cypress-multi-reporters",
         "reporterOptions": {
             "configFile": "reporter-config.json"
         },
-        "projectRoot": "/home/triophore/Documents/projects/cypress_ui_bkp",
-        "projectName": "cypress_ui_bkp",
+        "setupNodeEvents": "[Function setupNodeEvents]",
+        "baseUrl": "https://dev2a.lifesignals.com",
+        "specPattern": "cypress/e2e/**/*.{js,jsx,ts,tsx}",
+        "projectRoot": "/media/lifesignals/LifeSIgnals/cypress_dev/cypress_ui",
+        "projectName": "cypress_ui",
         "rawJson": {
-            "baseUrl": "https://dev2a.lifesignals.com",
             "projectId": "bp2a4r",
             "reporter": "cypress-multi-reporters",
             "reporterOptions": {
                 "configFile": "reporter-config.json"
             },
+            "e2e": {
+                "setupNodeEvents": "[Function setupNodeEvents]",
+                "baseUrl": "https://dev2a.lifesignals.com",
+                "specPattern": "cypress/e2e/**/*.{js,jsx,ts,tsx}"
+            },
+            "setupNodeEvents": "[Function setupNodeEvents]",
+            "baseUrl": "https://dev2a.lifesignals.com",
+            "specPattern": "cypress/e2e/**/*.{js,jsx,ts,tsx}",
             "envFile": {},
-            "projectRoot": "/home/triophore/Documents/projects/cypress_ui_bkp",
-            "projectName": "cypress_ui_bkp"
+            "projectRoot": "/media/lifesignals/LifeSIgnals/cypress_dev/cypress_ui",
+            "projectName": "cypress_ui"
         },
-        "configFile": "cypress.json",
+        "configFile": "cypress.config.js",
         "morgan": false,
         "isTextTerminal": true,
-        "socketId": "1vidt",
+        "socketId": "64mxkr64ai",
         "report": true,
+        "animationDistanceThreshold": 5,
+        "arch": "x64",
+        "blockHosts": null,
+        "chromeWebSecurity": true,
+        "clientCertificates": [],
+        "defaultCommandTimeout": 4000,
+        "downloadsFolder": "/media/lifesignals/LifeSIgnals/cypress_dev/cypress_ui/cypress/downloads",
+        "env": {},
+        "execTimeout": 60000,
+        "experimentalFetchPolyfill": false,
+        "experimentalInteractiveRunEvents": false,
+        "experimentalSessionAndOrigin": false,
+        "experimentalSourceRewriting": false,
+        "fileServerFolder": "/media/lifesignals/LifeSIgnals/cypress_dev/cypress_ui",
+        "fixturesFolder": "/media/lifesignals/LifeSIgnals/cypress_dev/cypress_ui/cypress/fixtures",
+        "excludeSpecPattern": "*.hot-update.js",
+        "includeShadowDom": false,
+        "keystrokeDelay": 0,
+        "modifyObstructiveCode": true,
+        "numTestsKeptInMemory": 0,
+        "platform": "linux",
+        "pageLoadTimeout": 60000,
+        "port": 42321,
+        "redirectionLimit": 20,
+        "requestTimeout": 5000,
+        "resolvedNodePath": "/home/lifesignals/.nvm/versions/node/v16.14.0/bin/node",
+        "resolvedNodeVersion": "16.14.0",
+        "responseTimeout": 30000,
+        "retries": {
+            "runMode": 0,
+            "openMode": 0
+        },
+        "screenshotOnRunFailure": true,
+        "screenshotsFolder": "/media/lifesignals/LifeSIgnals/cypress_dev/cypress_ui/cypress/screenshots",
+        "slowTestThreshold": 10000,
+        "scrollBehavior": "top",
+        "supportFile": "/media/lifesignals/LifeSIgnals/cypress_dev/cypress_ui/cypress/support/e2e.js",
+        "supportFolder": "/media/lifesignals/LifeSIgnals/cypress_dev/cypress_ui/cypress/support",
+        "taskTimeout": 60000,
+        "trashAssetsBeforeRuns": true,
+        "userAgent": null,
+        "video": true,
+        "videoCompression": 32,
+        "videosFolder": "/media/lifesignals/LifeSIgnals/cypress_dev/cypress_ui/cypress/videos",
+        "videoUploadOnPasses": true,
+        "viewportHeight": 660,
+        "viewportWidth": 1000,
+        "waitForAnimations": true,
+        "watchForFileChanges": false,
+        "autoOpen": false,
         "browsers": [
             {
                 "name": "chrome",
                 "family": "chromium",
                 "channel": "stable",
                 "displayName": "Chrome",
-                "version": "102.0.5005.61",
+                "version": "101.0.4951.64",
                 "path": "google-chrome",
                 "minSupportedVersion": 64,
-                "majorVersion": 102
+                "majorVersion": 101
             },
             {
                 "name": "firefox",
                 "family": "firefox",
                 "channel": "stable",
                 "displayName": "Firefox",
-                "version": "100.0.2",
+                "version": "100.0",
                 "path": "firefox",
                 "minSupportedVersion": 86,
                 "majorVersion": 100
@@ -62,80 +121,31 @@
                 "channel": "stable",
                 "family": "chromium",
                 "displayName": "Electron",
-                "version": "94.0.4606.81",
+                "version": "100.0.4896.75",
                 "path": "",
-                "majorVersion": 94,
+                "majorVersion": 100,
                 "info": "Electron is the default browser that comes with Cypress. This is the default browser that runs in headless mode. Selecting this browser is useful when debugging. The version number indicates the underlying Chromium version that Electron uses."
             }
         ],
-        "animationDistanceThreshold": 5,
-        "blockHosts": null,
-        "chromeWebSecurity": true,
-        "clientCertificates": [],
-        "component": {},
-        "componentFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/component",
-        "defaultCommandTimeout": 4000,
-        "downloadsFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/downloads",
-        "e2e": {},
-        "env": {},
-        "execTimeout": 60000,
-        "experimentalFetchPolyfill": false,
-        "experimentalInteractiveRunEvents": false,
-        "experimentalSessionSupport": false,
-        "experimentalSourceRewriting": false,
-        "experimentalStudio": false,
-        "fileServerFolder": "/home/triophore/Documents/projects/cypress_ui_bkp",
-        "fixturesFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/fixtures",
-        "ignoreTestFiles": "*.hot-update.js",
-        "includeShadowDom": false,
-        "integrationFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/integration",
-        "keystrokeDelay": 0,
-        "modifyObstructiveCode": true,
-        "numTestsKeptInMemory": 0,
-        "pageLoadTimeout": 60000,
-        "pluginsFile": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/plugins/index.js",
-        "port": 32869,
-        "redirectionLimit": 20,
-        "requestTimeout": 5000,
-        "resolvedNodePath": "/home/triophore/.nvm/versions/node/v16.14.2/bin/node",
-        "resolvedNodeVersion": "16.14.2",
-        "responseTimeout": 30000,
-        "retries": {
-            "runMode": 0,
-            "openMode": 0
-        },
-        "screenshotOnRunFailure": true,
-        "screenshotsFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/screenshots",
-        "slowTestThreshold": 10000,
-        "scrollBehavior": "top",
-        "supportFile": false,
-        "supportFolder": false,
-        "taskTimeout": 60000,
-        "testFiles": "**/*.*",
-        "trashAssetsBeforeRuns": true,
-        "userAgent": null,
-        "video": true,
-        "videoCompression": 32,
-        "videosFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/videos",
-        "videoUploadOnPasses": true,
-        "viewportHeight": 660,
-        "viewportWidth": 1000,
-        "waitForAnimations": true,
-        "watchForFileChanges": false,
-        "autoOpen": false,
         "clientRoute": "/__/",
+        "cypressBinaryRoot": "/home/lifesignals/.cache/Cypress/10.1.0/Cypress/resources/app",
         "devServerPublicPathRoute": "/__cypress/src",
         "hosts": null,
         "isInteractive": true,
         "namespace": "__cypress",
         "reporterRoute": "/__cypress/reporter",
-        "socketIoCookie": "__socket.io",
-        "socketIoRoute": "/__socket.io",
+        "socketIoCookie": "__socket",
+        "socketIoRoute": "/__socket",
+        "version": "10.1.0",
         "xhrRoute": "/xhrs/",
         "cypressEnv": "production",
         "resolved": {
             "animationDistanceThreshold": {
                 "value": 5,
+                "from": "default"
+            },
+            "arch": {
+                "value": "x64",
                 "from": "default"
             },
             "baseUrl": {
@@ -154,24 +164,12 @@
                 "value": [],
                 "from": "default"
             },
-            "component": {
-                "value": {},
-                "from": "default"
-            },
-            "componentFolder": {
-                "value": "cypress/component",
-                "from": "default"
-            },
             "defaultCommandTimeout": {
                 "value": 4000,
                 "from": "default"
             },
             "downloadsFolder": {
                 "value": "cypress/downloads",
-                "from": "default"
-            },
-            "e2e": {
-                "value": {},
                 "from": "default"
             },
             "env": {},
@@ -187,15 +185,11 @@
                 "value": false,
                 "from": "default"
             },
-            "experimentalSessionSupport": {
+            "experimentalSessionAndOrigin": {
                 "value": false,
                 "from": "default"
             },
             "experimentalSourceRewriting": {
-                "value": false,
-                "from": "default"
-            },
-            "experimentalStudio": {
                 "value": false,
                 "from": "default"
             },
@@ -207,16 +201,12 @@
                 "value": "cypress/fixtures",
                 "from": "default"
             },
-            "ignoreTestFiles": {
+            "excludeSpecPattern": {
                 "value": "*.hot-update.js",
                 "from": "default"
             },
             "includeShadowDom": {
                 "value": false,
-                "from": "default"
-            },
-            "integrationFolder": {
-                "value": "cypress/integration",
                 "from": "default"
             },
             "keystrokeDelay": {
@@ -231,12 +221,12 @@
                 "value": 0,
                 "from": "config"
             },
-            "pageLoadTimeout": {
-                "value": 60000,
+            "platform": {
+                "value": "linux",
                 "from": "default"
             },
-            "pluginsFile": {
-                "value": "cypress/plugins",
+            "pageLoadTimeout": {
+                "value": 60000,
                 "from": "default"
             },
             "port": {
@@ -253,13 +243,13 @@
             },
             "reporter": {
                 "value": "cypress-multi-reporters",
-                "from": "config"
+                "from": "cli"
             },
             "reporterOptions": {
                 "value": {
                     "configFile": "reporter-config.json"
                 },
-                "from": "config"
+                "from": "cli"
             },
             "requestTimeout": {
                 "value": 5000,
@@ -301,7 +291,7 @@
                 "from": "default"
             },
             "supportFile": {
-                "value": "cypress/support",
+                "value": "cypress/support/e2e.{js,jsx,ts,tsx}",
                 "from": "default"
             },
             "supportFolder": {
@@ -310,10 +300,6 @@
             },
             "taskTimeout": {
                 "value": 60000,
-                "from": "default"
-            },
-            "testFiles": {
-                "value": "**/*.*",
                 "from": "default"
             },
             "trashAssetsBeforeRuns": {
@@ -363,17 +349,17 @@
                         "family": "chromium",
                         "channel": "stable",
                         "displayName": "Chrome",
-                        "version": "102.0.5005.61",
+                        "version": "101.0.4951.64",
                         "path": "google-chrome",
                         "minSupportedVersion": 64,
-                        "majorVersion": 102
+                        "majorVersion": 101
                     },
                     {
                         "name": "firefox",
                         "family": "firefox",
                         "channel": "stable",
                         "displayName": "Firefox",
-                        "version": "100.0.2",
+                        "version": "100.0",
                         "path": "firefox",
                         "minSupportedVersion": 86,
                         "majorVersion": 100
@@ -383,15 +369,15 @@
                         "channel": "stable",
                         "family": "chromium",
                         "displayName": "Electron",
-                        "version": "94.0.4606.81",
+                        "version": "100.0.4896.75",
                         "path": "",
-                        "majorVersion": 94,
+                        "majorVersion": 100,
                         "info": "Electron is the default browser that comes with Cypress. This is the default browser that runs in headless mode. Selecting this browser is useful when debugging. The version number indicates the underlying Chromium version that Electron uses.",
                         "isHeadless": true,
                         "isHeaded": false
                     }
                 ],
-                "from": "default"
+                "from": "runtime"
             },
             "hosts": {
                 "value": null,
@@ -400,128 +386,52 @@
             "isInteractive": {
                 "value": true,
                 "from": "default"
+            },
+            "specPattern": {
+                "value": "cypress/e2e/**/*.{js,jsx,ts,tsx}",
+                "from": "config"
             }
         },
-        "parentTestsFolder": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress",
-        "parentTestsFolderDisplay": "cypress_ui_bkp/cypress",
-        "scaffoldedFiles": [
-            {
-                "name": "cypress",
-                "children": [
-                    {
-                        "name": "integration",
-                        "children": [
-                            {
-                                "name": "1-getting-started",
-                                "children": [
-                                    {
-                                        "name": "todo.spec.js"
-                                    }
-                                ]
-                            },
-                            {
-                                "name": "2-advanced-examples",
-                                "children": [
-                                    {
-                                        "name": "actions.spec.js"
-                                    },
-                                    {
-                                        "name": "aliasing.spec.js"
-                                    },
-                                    {
-                                        "name": "assertions.spec.js"
-                                    },
-                                    {
-                                        "name": "connectors.spec.js"
-                                    },
-                                    {
-                                        "name": "cookies.spec.js"
-                                    },
-                                    {
-                                        "name": "cypress_api.spec.js"
-                                    },
-                                    {
-                                        "name": "files.spec.js"
-                                    },
-                                    {
-                                        "name": "local_storage.spec.js"
-                                    },
-                                    {
-                                        "name": "location.spec.js"
-                                    },
-                                    {
-                                        "name": "misc.spec.js"
-                                    },
-                                    {
-                                        "name": "navigation.spec.js"
-                                    },
-                                    {
-                                        "name": "network_requests.spec.js"
-                                    },
-                                    {
-                                        "name": "querying.spec.js"
-                                    },
-                                    {
-                                        "name": "spies_stubs_clocks.spec.js"
-                                    },
-                                    {
-                                        "name": "traversal.spec.js"
-                                    },
-                                    {
-                                        "name": "utilities.spec.js"
-                                    },
-                                    {
-                                        "name": "viewport.spec.js"
-                                    },
-                                    {
-                                        "name": "waiting.spec.js"
-                                    },
-                                    {
-                                        "name": "window.spec.js"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "name": "fixtures",
-                        "children": [
-                            {
-                                "name": "example.json"
-                            }
-                        ]
-                    },
-                    {
-                        "name": "plugins",
-                        "children": [
-                            {
-                                "name": "index.js"
-                            }
-                        ]
-                    }
-                ]
+        "testingType": "e2e",
+        "remote": {
+            "origin": "https://dev2a.lifesignals.com",
+            "strategy": "http",
+            "fileServer": null,
+            "domainName": "lifesignals.com",
+            "props": {
+                "port": "443",
+                "tld": "com",
+                "domain": "lifesignals"
             }
-        ],
-        "proxyUrl": "http://localhost:32869",
+        },
+        "browser": null,
+        "specs": [],
+        "proxyUrl": "http://localhost:42321",
         "browserUrl": "https://dev2a.lifesignals.com/__/",
         "reporterUrl": "https://dev2a.lifesignals.com/__cypress/reporter",
         "xhrUrl": "__cypress/xhrs/",
-        "proxyServer": "http://localhost:32869",
+        "proxyServer": "http://localhost:42321",
         "state": {}
     },
-    "cypressVersion": "9.5.4",
+    "cypressVersion": "10.1.0",
     "parallel": false,
     "specs": [
         {
-            "name": "usercreation.spec.js",
-            "relative": "cypress/integration/usercreation.spec.js",
-            "absolute": "/home/triophore/Documents/projects/cypress_ui_bkp/cypress/integration/usercreation.spec.js",
-            "specType": "integration"
+            "fileExtension": ".js",
+            "baseName": "usercreation.spec.js",
+            "fileName": "usercreation",
+            "specFileExtension": ".spec.js",
+            "relativeToCommonRoot": "usercreation.spec.js",
+            "specType": "integration",
+            "name": "cypress/e2e/usercreation.spec.js",
+            "relative": "cypress/e2e/usercreation.spec.js",
+            "absolute": "/media/lifesignals/LifeSIgnals/cypress_dev/cypress_ui/cypress/e2e/usercreation.spec.js"
         }
     ],
-    "specPattern": null,
+    "specPattern": "cypress/e2e/**/*.{js,jsx,ts,tsx}",
     "system": {
         "osName": "linux",
-        "osVersion": "Ubuntu - 22.04"
-    }
+        "osVersion": "Linux Mint - 20.3"
+    },
+    "project_id": "crneycpiusr"
 }

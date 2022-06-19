@@ -1,4 +1,4 @@
-module.exports.route = async function (server,mongoose,io) {
+module.exports.route = async function (server,mongoose) {
     server.route({
         method: 'POST',
         path: '/submit_all',
@@ -14,12 +14,10 @@ module.exports.route = async function (server,mongoose,io) {
         path: '/before_run',
         options: { auth: false },
         handler: async (request, h) => {
-            console.log("before_run");
             require('fs').writeFileSync(require("path").join(__dirname,"before_run_"+Date.now()+".json"), JSON.stringify(request.payload));
             try {
-                io.emit('ui_before_run', request.payload);
-                var res = await new mongoose.cypress_project_before(request.payload).save();
-                return res;
+               // var res = await new mongoose.cypress_project_before(request.payload).save();
+            return res;
             } catch (error) {
                 console.log(error);
             return error
@@ -35,9 +33,8 @@ module.exports.route = async function (server,mongoose,io) {
         options: { auth: false },
         handler: async (request, h) => {
             require('fs').writeFileSync(require("path").join(__dirname,"after_run_"+Date.now()+".json"), JSON.stringify(request.payload));
-            var res = await new mongoose.cypress_project_after(request.payload).save();
+            //var res = await new mongoose.cypress_project_after(request.payload).save();
             return res;
-            
         }
     });
 
@@ -47,10 +44,8 @@ module.exports.route = async function (server,mongoose,io) {
         options: { auth: false },
         handler: async (request, h) => {
             require('fs').writeFileSync(require("path").join(__dirname,"before_spec_"+Date.now()+".json"), JSON.stringify(request.payload));
-            io.emit('ui_before_spec', request.payload);
-            var res = await new mongoose.cypress_spec_before(request.payload).save();
+            //var res = await new mongoose.cypress_spec_before(request.payload).save();
             return res;
-            
         }
     });
 
@@ -60,8 +55,7 @@ module.exports.route = async function (server,mongoose,io) {
         options: { auth: false },
         handler: async (request, h) => {
             require('fs').writeFileSync(require("path").join(__dirname,"after_spec_"+Date.now()+".json"), JSON.stringify(request.payload));
-            io.emit('ui_after_spec', request.payload);
-            var res = await new mongoose.cypress_spec_after(request.payload).save();
+           // var res = await new mongoose.cypress_spec_after(request.payload).save();
             return res;
         }
     });
