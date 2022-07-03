@@ -7,8 +7,14 @@ const bcrypt = require('bcrypt');
 const mongoosePaginate = require('mongoose-paginate-v2');
 const config = require('./config');
 const Blipp = require('blipp');
+const Inert = require('@hapi/inert');
+const path = require('path');
+const fs = require('fs');
+const fsp = require('fs/promises');
+const { v4: uuidv4 } = require('uuid');
 
 const agents = require('./agent');
+const { fips } = require('crypto');
 
 
 const init = async () => {
@@ -18,10 +24,19 @@ const init = async () => {
     if (config.mongodb) {
         await mongoose.connect(config.mongodb, { useNewUrlParser: true, useUnifiedTopology: true });
         const db = mongoose.connection;
+       
         db.on('error', console.error.bind(console, 'connection error:'));
         db.once('open', function () {
             console.log("DB Connected")
         });
+
+        var db_driver = mongoose.connection.db;
+
+
+       // var d = await db_driver.collection("users").find({}).toArray();
+
+       // console.log(d)
+
         models.user = await require('./models/user')(mongoose, mongoosePaginate);
         models.sms = await require('./models/sms')(mongoose, mongoosePaginate);
         models.agents = await require('./models/agents')(mongoose, mongoosePaginate);
@@ -49,7 +64,10 @@ const init = async () => {
         port: config.server.port,
         host: config.server.host,
         routes: {
-            cors: true
+            cors: true,
+            files: {
+                relativeTo: path.join(__dirname, 'static')
+            }
         }
     });
 
@@ -58,6 +76,8 @@ const init = async () => {
             origin: "*"
         }
     });
+
+    await server.register(Inert);
 
     await server.register({ plugin: Blipp, options: { showAuth: true } });
 
@@ -105,7 +125,8 @@ const init = async () => {
         socket.on("agent_info_recv",async function(data) {
             console.log("Agent info recv");
             console.log(data)
-            io.in(data.project_id).emit('update_agent', data);
+            //.in(data.project_id)
+            io.emit('update_agent', data);
         });
 
         socket.on("ui_start_agent",async function(data) {
@@ -138,7 +159,7 @@ const init = async () => {
         });
     });
 
-    require("./routes/api").route(server, models,io);
+    require("./routes/api").route(server, models,io,db_driver);
     require("./routes/sms").route(server, models);
     require("./routes/user").route(server, models);
     require("./routes/email").route(server, models);
@@ -231,6 +252,73 @@ const init = async () => {
             return h.response(err_res).code(401)
         }
     });
+
+    server.route({
+        method: 'GET',
+        path: '/{param*}',
+        options: {
+            auth: false,
+        },
+        handler: {
+            directory: {
+                path: '.',
+                redirectToSlash: true
+            }
+        }
+    });
+    
+    server.route({
+        path: '/upload/video',
+        method: 'POST',
+        options: {
+            auth: false,
+            payload: {
+            output: 'stream',
+            maxBytes: 209715200,
+            parse: true,
+            allow: 'multipart/form-data',
+            multipart : true  // <== this is important in hapi 19
+            }
+        },
+        handler: async (req, h) => {
+            const data = req.payload;
+            console.log(data);
+            if (data.file) {
+                var name =  uuidv4()+".mp4"
+            
+            const filepath = path.join(__dirname, 'static',"videos",name);
+            const outputStream = fs.createWriteStream(filepath);
+            data.file.pipe(outputStream);
+            }
+            return 'ok';
+        }
+    })
+
+    server.route({
+        path: '/upload/image',
+        method: 'POST',
+        options: {
+            auth: false,
+            payload: {
+            output: 'stream',
+            maxBytes: 209715200,
+            parse: true,
+            allow: 'multipart/form-data',
+            multipart : true  // <== this is important in hapi 19
+            }
+        },
+        handler: async (req, h) => {
+            const data = req.payload;
+            console.log(data);
+            if (data.file) {
+                var name =  uuidv4()+".png"
+                const filepath = path.join(__dirname, 'static',"images",name);
+                const outputStream = fs.createWriteStream(filepath);
+                data.file.pipe(outputStream);
+            }
+            return 'ok';
+        }
+    })
 
 
 

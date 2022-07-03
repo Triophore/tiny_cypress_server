@@ -11,4 +11,5 @@ module.exports = {
     bcrypt:{
         round:10
     },
+    ping_interval:5000,
 }

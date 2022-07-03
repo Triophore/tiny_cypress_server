@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@hapi/hapi": "^20.2.2",
+    "@hapi/inert": "^6.0.5",
     "bcrypt": "^5.0.1",
     "blipp": "^4.0.2",
     "hapi-auth-jwt2": "^10.2.0",
@@ -19,7 +20,11 @@
     "mongoose": "^6.3.4",
     "mongoose-paginate-v2": "^1.6.3",
     "monodb": "^1.5.1",
+    "ms-teams-webhook": "^1.0.4",
+    "node-cache": "^5.1.2",
     "prompt-sync": "^4.2.0",
-    "socket.io": "^4.5.1"
+    "socket.io": "^4.5.1",
+    "uuid": "^8.3.2",
+    "zeromq": "^5.2.8"
   }
 }
