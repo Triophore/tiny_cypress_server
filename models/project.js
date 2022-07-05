@@ -38,6 +38,9 @@ module.exports = async function (mongoose) {
         },
         project_run_count:{
             type: String
+        },
+        project_type:{
+            type: String
         }
 
 

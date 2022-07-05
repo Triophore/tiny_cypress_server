@@ -3,11 +3,13 @@ module.exports = async function (mongoose) {
     const userSchema = new mongoose.Schema({
         name: {
             type: String,
-            required: true
         },
         number: {
             type: String,
             unique : true
+        },
+        agent_type: {
+            type: String,
         }
 
     });
