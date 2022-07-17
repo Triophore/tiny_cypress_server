@@ -41,7 +41,7 @@ module.exports.route = async function (server,models) {
            
             if(request.query.search){
               
-                query.username = {
+                query.project_name= {
                     $regex:request.query.search,
                     $options: 'i'
                 }
