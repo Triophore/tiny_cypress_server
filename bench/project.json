@@ -1,0 +1,13 @@
+{
+    "project_type" : "STEP/GRAPH",
+    "user" : "test",
+    "steps" : [
+        {
+            "name" : "hello",
+            "hold" : "name",
+            "until" : "number",
+            "capture_screen" : true,
+            "write_point" : true
+        }
+    ]
+}

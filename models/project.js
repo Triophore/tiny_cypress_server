@@ -12,6 +12,15 @@ module.exports = async function (mongoose) {
             unique: true,
             required : true
         },
+        project_status:{
+            type:String
+        },
+        project_start_time:{
+            type : Date
+        },
+        project_stop_time:{
+            type : Date
+        },
         project_before: {
             type: Boolean
         },

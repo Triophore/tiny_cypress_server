@@ -1,22 +1,3 @@
-// const agent_db_path = "./db/agent.db";
-
-// const { Level } = require('level')
-
-// const agent_db = new Level(agent_db_path, {
-//     valueEncoding: 'json'
-// });
-
-
-// module.exports.add_agent = async function (agent_info) {
-//     console.log("add_agent")
-//     await agent_db.put(agent_info.agent_id, agent_info);
-// }
-
-// module.exports.remove_agent = async function (agent_info) {
-//     console.log("add_agent")
-//     await agent_db.put(agent_info.agent_id, agent_info);
-// }
-
 var agents = {
 
 }
