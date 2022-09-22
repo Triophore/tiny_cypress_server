@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon --ignore log/ index.js"
   },
   "keywords": [],
   "author": "",
@@ -14,6 +14,7 @@
     "@hapi/inert": "^6.0.5",
     "bcrypt": "^5.0.1",
     "blipp": "^4.0.2",
+    "file-stream-rotator": "^0.6.1",
     "hapi-auth-jwt2": "^10.2.0",
     "jsonwebtoken": "^8.5.1",
     "level": "^8.0.0",
@@ -24,7 +25,9 @@
     "node-cache": "^5.1.2",
     "prompt-sync": "^4.2.0",
     "socket.io": "^4.5.1",
+    "socket.io-client": "^4.5.1",
     "uuid": "^8.3.2",
+    "@influxdata/influxdb-client": "^1.22.0",
     "zeromq": "^5.2.8"
   }
 }

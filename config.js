@@ -1,6 +1,6 @@
 module.exports = {
     server : {
-        host : "localhost",
+        host : "0.0.0.0",
         port : 4500
     },
     mongodb : "mongodb+srv://admin:admin@cluster0.evips.mongodb.net/tiny_cypress?retryWrites=true&w=majority",
@@ -12,4 +12,11 @@ module.exports = {
         round:10
     },
     ping_interval:5000,
+    influx_db_name:"LS",
+    influx_db : "http://localhost:8086/",
+    influx_db_port: 8086,
+    influx_db_user : "admin",
+    influx_db_org : "LS",
+    influx_db_token : "VJ6CH2uhlfQIgIYBWJE5fAG6I59j2e-QrwnwNgAT-770qNFXi8CpPNpA7hbA-emITGOuFacXhX2sks8XycKnnw==",
+    influx_db_bucket : "LS",
 }

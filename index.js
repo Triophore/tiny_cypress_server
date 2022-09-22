@@ -12,9 +12,9 @@ const path = require('path');
 const fs = require('fs');
 const fsp = require('fs/promises');
 const { v4: uuidv4 } = require('uuid');
-
-
 const { fips } = require('crypto');
+const { InfluxDB, Point, HttpError } = require('@influxdata/influxdb-client')
+const { hostname } = require('os')
 
 
 const init = async () => {
@@ -49,7 +49,21 @@ const init = async () => {
         models.cypress_spec_after = await require('./models/cypress_spec_after')(mongoose, mongoosePaginate);
         models.cypress_spec_before = await require('./models/cypress_spec_before')(mongoose, mongoosePaginate);
         models.cypress_project_before = await require('./models/cypress_project_before')(mongoose, mongoosePaginate);
+
+
+        //pupeeteer project models
+        models.puppet_project = await require('./models/puppet_project')(mongoose, mongoosePaginate);
+        models.puppet_project_run = await require('./models/puppet_project_run')(mongoose, mongoosePaginate);
+        models.puppet_project_result = await require('./models/puppet_project_result')(mongoose, mongoosePaginate);
+    }else{
+        console.log("No mongo config found")
+        process.exit(0)
     }
+
+
+    const writeApi = new InfluxDB({ url: config.influx_db, token: config.influx_db_token }).getWriteApi(config.influx_db_org, config.influx_db_bucket,"s");
+
+    writeApi.useDefaultTags({ location: hostname() })
 
     const JWT   = require('jsonwebtoken');
 
@@ -95,12 +109,16 @@ const init = async () => {
     });
 
     var user_socket = require("./socket/user_socket");
-    var agent_socket = require("./socket/agent_socket")
+    var agent_socket = require("./socket/agent_socket");
+    var engine_socket = require("./socket/engine_socket");
+    var influx_socket = require("./socket/influx_socket");
 
     io.on("connection", (socket) => {
         //console.log(socket.id)
         user_socket.userSocket(socket,io);
         agent_socket.agentSocket(socket,io);
+        engine_socket.engineSocket(socket,io);
+        influx_socket.influxSocket(socket,io,writeApi);
     });
 
     require("./routes/api").route(server, models,io,db_driver);
@@ -110,6 +128,7 @@ const init = async () => {
     require("./routes/teams").route(server, models);
     require("./routes/project").route(server, models);
     require("./routes/agents").route(server, models);
+    require("./routes/puppeteer/project").route(server, models);
 
     server.route({
         method: 'GET',
@@ -269,6 +288,7 @@ const init = async () => {
 
     await server.start();
     console.log('Server running on %s', server.info.uri);
+
 };
 
 process.on('unhandledRejection', (err) => {

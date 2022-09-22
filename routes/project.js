@@ -15,8 +15,7 @@ module.exports.route = async function (server,models) {
             var res = {};         
             var data =  await models.project.findOne({_id : request.params.id});
             if(data){
-                res.project = data;
-              
+                res.project = data;            
                 return res;
             }else{
                 return res;
@@ -72,6 +71,18 @@ module.exports.route = async function (server,models) {
             return await models.project.deleteOne({_id:request.payload._id});
         }
     });
+
+    // server.route({
+    //     method: 'POST',
+    //     path: '/api/project/run/data/{id}',
+    //     handler: async (request, h) => {  
+    //         return await models.project_run.find({
+    //             project_id : request.params.id
+    //         }).sort({
+    //             project_start_time : -1
+    //         })
+    //     }
+    // });
 
 
 }
